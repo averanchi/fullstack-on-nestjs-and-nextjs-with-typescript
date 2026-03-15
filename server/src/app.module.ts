@@ -4,14 +4,14 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { FileModule } from './file/file.module';
 import path from 'path';
 import { ServeStaticModule } from '@nestjs/serve-static';
-
+import dotenv from 'dotenv';
 
 @Module({
     imports: [
         ServeStaticModule.forRoot({
             rootPath: path.resolve(__dirname, 'static'),
         }),
-        MongooseModule.forRoot('mongodb+srv://1994hromov_db_user:hoxBA6yp4aajV8yL@cluster0.xvext4z.mongodb.net/nest-next?appName=Cluster0'),
+        MongooseModule.forRoot(process.env.MONGODB_URI ?? (() => { throw new Error('MONGODB_URI is not defined'); })()),
         TrackModule,
         FileModule
     ],
