@@ -17,7 +17,7 @@ export class FileService {
             // Генерируем уникальное имя для файла, используя uuid
             const fileName = uuid.v4() + '.' + fileExtension;
             // Путь для папки и файла в ней
-            const staticPath = path.resolve(__dirname, '..', 'static', type);
+            const staticPath = path.resolve(process.cwd(), 'static', type);
             const filePath = path.resolve(staticPath, fileName);
             // Проверяем, существует ли папка, если нет - создаем ее
             if (!fs.existsSync(staticPath)) {
