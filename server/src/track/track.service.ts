@@ -42,7 +42,6 @@ export class TrackService {
         if (!tracks) {
             throw new Error('Tracks not found');
         }
-        console.log(tracks);
         return tracks;
     }
 
