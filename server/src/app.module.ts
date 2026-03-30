@@ -6,6 +6,8 @@ import path from 'path';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import 'dotenv/config';
 
+        console.log('MONGODB_URI=', process.env.MONGODB_URI);
+
 @Module({
     imports: [
         ServeStaticModule.forRoot({
